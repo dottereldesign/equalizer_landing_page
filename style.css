@@ -20,8 +20,8 @@
   --clr-primary-200: hsl(12, 94%, 65%);
   --clr-primary-300: hsl(33, 100%, 70%);
 
-  --clr-neutral-100: #fcfaf9;
-  --clr-neutral-200: #191826;
+  --clr-neutral-100: hsl(20, 33%, 98%);
+  --clr-neutral-200: hsl(244, 23%, 12%);
 }
 
 /* https://piccalil.li/blog/a-modern-css-reset */
@@ -61,6 +61,7 @@ body {
 }
 /* A elements that don't have a class get default styles */
 a:not([class]) {
+  -webkit-text-decoration-skip: ink;
   text-decoration-skip-ink: auto;
 }
 /* Make images easier to work with */
@@ -84,7 +85,9 @@ select {
   *,
   *::before,
   *::after {
+    -webkit-animation-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
@@ -97,6 +100,10 @@ select {
 }
 
 /* header */
+header {
+  padding: 16px 16px 0 16px;
+}
+
 header img,
 footer img {
   width: 146px;
@@ -104,10 +111,120 @@ footer img {
 }
 
 /* main */
+main {
+  padding: 0 16px;
+  margin-top: 48px;
+}
+
 h1 {
-  color: ;
-  font-size: ;
-  font-weight: ;
+  color: var(--clr-neutral-200);
+  font-size: var(--fs-800);
+  font-weight: var(--fw-bold);
+  line-height: 1.2;
+}
+
+main p {
+  color: var(--clr-neutral-200);
+  font-size: var(--fs-500);
+  font-weight: var(--fw-regular);
+  margin-top: 16px;
+}
+
+/* Premium Section */
+section {
+  background-color: hsl(244, 23%, 12%);
+  background-image: url("images/bg-pattern-2.svg");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 280px 420px;
+  position: relative;
+  margin: 148px 16px 0 16px;
+  border-radius: 12px;
+  display: grid;
+  grid-template-columns: 1fr;
+  /* grid-template-rows: 138px 150px 450px 96px; */
+  grid-template-rows: 98px 284px 546px;
+}
+
+.img-premium {
+  display: flex;
+  justify-content: center;
+}
+
+.img-premium img {
+  width: 209px;
+  height: 430px;
+  position: absolute;
+  top: -100px;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+.card-premium {
+  grid-row-start: 3;
+  grid-row-end: 5;
+  background-color: var(--clr-primary-200);
+  border-radius: 12px;
+  padding: 32px;
+}
+
+.card-premium h2 {
+  color: var(--clr-neutral-100);
+  font-size: var(--fs-700);
+  font-weight: var(--fw-bold);
+}
+
+.card-premium p {
+  color: var(--clr-neutral-100);
+  font-size: var(--fs-500);
+  font-weight: var(--fw-regular);
+  margin-top: 16px;
+}
+
+.card-premium_price {
+  margin-top: 24px;
+}
+
+.card-premium_price p {
+  color: var(--clr-neutral-100);
+  font-size: var(--fs-500);
+  font-weight: var(--fw-regular);
+  display: flex;
+  align-items: center;
+}
+
+.card-premium_price span {
+  color: var(--clr-neutral-100);
+  font-size: var(--fs-900);
+  font-weight: var(--fw-semi-bold);
+  margin-right: 16px;
+}
+
+.ios_btn,
+.android_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--clr-neutral-200);
+  width: min(296px, 100%);
+  height: 61px;
+  border-radius: 12px;
+  color: var(--clr-neutral-100);
+  font-size: var(--fs-500);
+  font-weight: var(--fw-medium);
+  text-decoration: none;
+  margin-top: 24px;
+}
+
+.android_btn {
+  background-color: var(--clr-neutral-100);
+  color: var(--clr-neutral-200);
+}
+
+.ios_btn i,
+.android_btn i {
+  margin-right: 8px;
+  font-size: var(--fs-500);
 }
 
 /* footer */
